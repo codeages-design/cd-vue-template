@@ -25,7 +25,7 @@
         label="课程状态"
         width="120">
         <template scope="scope">
-          {{ scope.row.status | courseStatus }}
+          {{ scope.row.status }}
         </template>
       </el-table-column>
       <el-table-column
