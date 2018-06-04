@@ -1,4 +1,4 @@
-.clearfix {
+.cvp-clearfix {
   &:after,
   &:before {
     content: " ";
@@ -9,41 +9,47 @@
   }
 }
 
-.text-left {
+.cvp-text-left {
   text-align: left;
 }
 
-.text-right {
+.cvp-text-right {
   text-align: right;
 }
 
-.text-center {
+.cvp-text-center {
   text-align: center;
 }
 
-.v-middle {
+.cvp-v-middle {
   vertical-align: middle;
 }
 
-.text-overflow {
+.cvp-text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  .cell {
+    white-space: nowrap;
+  }
 }
 
-.width-50 {
+.cvp-width-50 {
   width: 50px;
 }
 
-.block {
+.cvp-padding-right-50 {
+  padding-right: 50px !important;
+}
+
+.cvp-block {
   display: block;
 }
 
-.full-width {
+.cvp-width-full {
   width: 100%;
 }
 
-.color-gary {
-  color: #313131;
+.cvp-transition(@property: all, @time: .3s, @type: ease) {
+  transition: @property @time @type;
 }
-

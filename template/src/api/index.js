@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { parseUrl, addPrefix } from './utils';
+// import jsonRpc from './jsonrpc/index';
 
 // API配置
 import config from '@/api/config';
 
 // 模拟数据
-import '@/api/mock';
+// import '@/api/mock';
 
 // 拦截器
 import '@/api/interceptors';
@@ -25,5 +26,7 @@ const axiosApi = () => {
 };
 
 axiosApi();
+
+// Api.jsonrpc = jsonRpc;
 
 export default Api;

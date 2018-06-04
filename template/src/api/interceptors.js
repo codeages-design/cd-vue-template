@@ -24,7 +24,13 @@ axios.interceptors.response.use((res) => {
 
   return res.data;
 }, (error) => {
-  console.log('resError', error.response);
+  console.log('resError', error);
+
+  if (!error.response) {
+    console.log(error);
+    error.message = '网络问题，请联系管理员';
+    return Promise.reject(error);;
+  }
 
   switch (error.response.status) {
     case 401:

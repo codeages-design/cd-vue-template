@@ -20,3 +20,5 @@ export default {
     mixins: [hello]
 }
 ```
+
+### 该文件已对所有vue文件尝试调用fetchData方法，其他方法可根据具体场景添加。

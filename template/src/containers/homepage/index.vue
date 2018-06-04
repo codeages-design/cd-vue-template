@@ -1,7 +1,13 @@
 <template>
   <div>
-    <x-panel>
-      <span slot="title">今日数据</span>
+    <el-alert
+      title="成功提示的文案"
+      type="info"
+      show-icon
+      :closable="false"
+      @close="alertClose">
+    </el-alert>
+    <cd-panel title="今日数据" size="sm">
       <ul class="subfield-list">
         <li class="subfield-item" v-for="item in todayData" :key="item.title">
           <div class="subfield-item__title">{{ item.title }}</div>
@@ -9,27 +15,27 @@
           <div class="subfield-item__subtitle">{{ item.subtitle }}: {{ item.total }}</div>
         </li>
       </ul>
-    </x-panel>
+    </cd-panel>
+
     <el-row :gutter="24" v-if="isAdmin || isSuperAdmin">
       <el-col :span="10">
-        <x-panel>
-          <span slot="title">付费订单</span>
+        <cd-panel title="付费订单" size="sm">
           <x-pie-chart
             :height="400"
             :data="payOrderData">
           </x-pie-chart>
-        </x-panel>
+        </cd-panel>
       </el-col>
       <el-col :span="14">
-        <x-panel>
-          <span slot="title">付费订单</span>
+        <cd-panel title="付费订单" size="sm">
           <x-line-chart
             :height="400"
             :data="orderData">
           </x-line-chart>
-        </x-panel>
+        </cd-panel>
       </el-col>
     </el-row>
+
   </div>
 </template>
 
@@ -38,8 +44,9 @@ import G2 from 'g2';
 import createG2 from '@/containers/components/g2';
 
 import { mapState, mapActions, mapGetters } from 'vuex';
-
+// 处理
 const XLineChart = createG2((chart, data) => {
+  console.log(data);
   let Frame = G2.Frame;
   let frame = new Frame(data);
   frame = Frame.combinColumns(frame, ['newOrder', 'payOrder'], 'value', 'order', 'date');
@@ -78,6 +85,7 @@ const XPieChart = createG2((chart, data) => {
       percent = (percent * 100).toFixed(2) + '%';
       return name + ' ' + percent;
     });
+  console.log(111, data);
   chart.render();
 });
 
@@ -120,6 +128,16 @@ export default {
       this.getPayOrderStatistic().then((res) => {
         console.log('getPayOrderStatistic', res);
       });
+    },
+    alertClose(e) {
+      console.log('alert被关闭了', e)
+    },
+    message() {
+      this.$message({
+        type: 'warning',
+        message: '这是message的一个例子',
+        showClose: true,
+      });
     }
   }
 }
@@ -130,28 +148,29 @@ export default {
   display: flex;
   padding-left: 0;
   margin: 0 auto;
-  .subfield-item {
-    flex: 1;
-    color: #616161;
-    text-align: center;
-    list-style: none;
-    + .subfield-item {
-      border-left: 1px solid #f5f5f5;
-    }
+}
+
+.subfield-item {
+  flex: 1;
+  color: #616161;
+  text-align: center;
+  list-style: none;
+  + .subfield-item {
+    border-left: 1px solid #f5f5f5;
   }
-  .subfield-item__title {
+  &__title {
     font-size: 14px;
     color: #313131;
     margin-top: 0;
   }
-  .subfield-item__number {
+  &__number {
     font-size: 24px;
-    /* margin-bottom: 10px; */
     display: block;
     color: #313131;
   }
-  .subfield-item__subtitle {
+  &__subtitle {
     color: #919191;
   }
 }
+
 </style>

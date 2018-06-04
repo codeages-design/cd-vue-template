@@ -3,7 +3,7 @@ export default [{
   name: 'course',
   component: (resolve) => require(['@/containers/course/index.vue'], resolve),
 }, {
-  path: 'courses',
+  path: 'course/list',
   name: 'courseList',
   meta: {
     title: '课程列表',
