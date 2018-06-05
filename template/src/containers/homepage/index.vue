@@ -2,9 +2,9 @@
   <div>
     <el-alert
       title="成功提示的文案"
-      type="info"
+      type="success"
       show-icon
-      :closable="false"
+      :closable="true"
       @close="alertClose">
     </el-alert>
     <cd-panel title="今日数据" size="sm">
@@ -15,6 +15,11 @@
           <div class="subfield-item__subtitle">{{ item.subtitle }}: {{ item.total }}</div>
         </li>
       </ul>
+    </cd-panel>
+
+    <cd-panel title="按钮控制模态框示例" size="sm">
+      <el-button type="primary" @click="openModalMd">打开模态框1</el-button>
+      <el-button type="warning" @click="openModalLg">打开模态框2</el-button>
     </cd-panel>
 
     <el-row :gutter="24" v-if="isAdmin || isSuperAdmin">
@@ -35,7 +40,22 @@
         </cd-panel>
       </el-col>
     </el-row>
-
+    <x-modal size="md" ref="modal-md">
+      <h3 slot="header">模态框1</h3>
+      <div slot="body" class="cvp-text-center">模态框body</div>
+      <div slot="footer" class="cvp-text-right">
+        模态框footer
+      </div>
+    </x-modal>
+    <x-modal size="sm" position="center" ref="modal-lg">
+      <h3 slot="header">模态框2</h3>
+      <div slot="body" class="cvp-text-center">
+        <el-button type="primary" @click="message">提示消息示例</el-button>
+      </div>
+      <div slot="footer" class="cvp-text-right">
+        模态框footer
+      </div>
+    </x-modal>
   </div>
 </template>
 
@@ -118,6 +138,12 @@ export default {
       'getOrderStatistic',
       'getPayOrderStatistic'
     ]),
+    openModalMd() {
+      this.$refs['modal-md'].showModal();
+    },
+    openModalLg() {
+      this.$refs['modal-lg'].showModal();
+    },
     fetchData() {
       this.getTodayData().then((res) => {
         console.log('getTodayData', res);
@@ -130,7 +156,7 @@ export default {
       });
     },
     alertClose(e) {
-      console.log('alert被关闭了', e)
+      console.log('alert被关闭了', e);
     },
     message() {
       this.$message({

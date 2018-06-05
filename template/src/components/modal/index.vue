@@ -1,11 +1,11 @@
 <template>
   <transition name="modal" v-if="show">
     <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-dialog">
-          <div class="modal-header" :class="modalSize">
+      <div :class="`modal-wrapper-${position}`" @click.self="maskClose">
+        <div class="modal-dialog" :class="modalSize">
+          <div class="modal-header">
             <slot name="close">
-              <i class="groupon-icon groupon-icon-guanbi" @click="closeClickListener"></i>
+              <i class="iconfont icon-modal-close" @click="closeClickListener"></i>
             </slot>
             <slot name="header">
               default header
@@ -36,8 +36,26 @@ export default {
       show: false
     }
   },
-  props: ['closeBtn', 'size'],
+  props: {
+    size: {
+      type: String,
+      default: 'md',
+    },
+    position: {
+      type: String,
+      default: 'top',
+    },
+    maskCloseable: {
+      type: Boolean,
+      default: true,
+    }
+  },
   methods: {
+    maskClose() {
+      if(this.maskCloseable) {
+        this.closeModal();
+      }
+    },
     closeClickListener() {
       this.closeModal();
     },
@@ -76,9 +94,20 @@ export default {
     transition: opacity .3s ease;
   }
 
-  .modal-wrapper {
+  .modal-wrapper-center {
     display: table-cell;
     vertical-align: middle;
+  }
+
+  .modal-wrapper-top {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 30px;
   }
 
   .modal-dialog {
@@ -98,10 +127,16 @@ export default {
       margin-top: 0;
       font-weight: 400;
     }
-    .groupon-icon {
+    .iconfont {
       position: absolute;
       right: 0;
       top: 0;
+      cursor: pointer;
+      opacity: .5;
+      color: #000;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 

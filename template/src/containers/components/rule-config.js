@@ -1,6 +1,5 @@
 import Translator from './translations/translator';
-import './translations/zh_CN';
-export default {
+module.exports =  {
   es_version: {
     message: Translator.trans('validate_old.es_version.message'),
     validator(str) {
@@ -39,13 +38,6 @@ export default {
       return reg.test(str);
     },
   },
-  mobile: {
-    message: Translator.trans('validate_old.mobile.message'),
-    validator(str) {
-      const reg = /^1\d{10}$/;
-      return reg.test(str);
-    }
-  },
   chinese_alphanumeric: {
     message: Translator.trans('validate_old.chinese_alphanumeric.message'),
     validator(str) {
@@ -54,7 +46,7 @@ export default {
     }
   },
   reg_inviteCode: {
-    message: Translator.trans('validate_old.reg_invite_code.message:'),
+    message: Translator.trans('validate_old.reg_invite_code.message'),
     validator(str) {
       const reg = /^[a-z0-9A-Z]{5}$/;
       return reg.test(str);

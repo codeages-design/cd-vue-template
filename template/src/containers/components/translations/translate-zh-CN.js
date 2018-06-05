@@ -1,6 +1,4 @@
 export default {
-  'site.flash_not_install_hint':`您的浏览器未装Flash播放器或版本太低，请先安装Flash播放器。<a target="_blank" href="http://www.adobe.com/go/getflashplayer">点击安装</a>`,
-
   'site.date_format_dhis': '%days%天%hours%小时%minutes%分钟%seconds%秒',
 
   'site.date_format_his': '%hours%小时%minutes%分钟%seconds%秒',
@@ -269,13 +267,7 @@ export default {
 
   'file.not_found': '文件不存在，请稍后再试！',
 
-  'activity.live.replay_guid_1':`老师们：录制直播课程时，需在直播课程间点击 <span class='color-info'>录制面板</span>，录制完成后点击 <span class='color-info'>暂停</span>结束录播，录播结束后在 <span class='color-info'>录播管理</span>界面生成回放。`,
-
-  'activity.live.replay_guid':`老师们：直播平台 <span class='color-info'>下课后</span>且 <span class='color-info'>直播时间</span>结束后，在课时管理的 <span class='color-info'>录播管理</span>点击生成回放。`,
-
   'activity.live.notice_title': '直播时间',
-
-  'activity.live.default_notice':`<p>直播将于%startTimeFormat%开始，于%endTimeFormat%结束<p> (请在课前10分钟内提早进入)`,
 
   'activity.live.started_notice': '直播已经开始，直播将于%endTimeFormat%结束。',
 
@@ -358,10 +350,6 @@ export default {
   'activity.homework_manage.positive_integer_error_hint': '必须为正整数',
 
   'activity.homework_manage.date_and_time_error_hint': '请输入正确的日期和时间，格式如XXXX-MM-DD hh:mm',
-
-  'activity.homework_manage.objective_question_hint':`这是一份纯客观题的作业，正确率达到为 <input type="text" name="passedCondition[]" class="form-control width-input width-input-mini ph5 text-center correctPercent1" value="60" />％合格， <input type="text" name="passedCondition[]" class="form-control width-input width-input-mini ph5 text-center correctPercent2" value="80" />％良好， <input type="text" name="passedCondition[]" class="form-control width-input width-input-mini ph5 text-center correctPercent3" value="100" />％优秀`,
-
-  'activity.homework_manage.pass_objective_question_hint':`这是一份纯客观题的试卷, 达到 <input type="text" name="passedScore" class="form-control width-150 mhs" value="0" data-score-total="0" /> 分（含）可以自动审阅通过考试。`,
 
   'activity.ppt_manage.media_error_hint': '请上传或选择PPT',
 
@@ -571,8 +559,6 @@ export default {
 
   'course_manage.student_create.price_max_error_hint': '购买价格不能大于课程原价!',
 
-  'course_set.show.count_down_format_hint': '剩余 <span>%D</span>天 <span>%H</span>时 <span>%M</span>分 <span>%S</span>秒',
-
   'course_set.show.time_finish_hint': '活动时间到，正在刷新网页，请稍等...',
 
   'course_set.refund_cancel_hint': '真的要取消退款吗？',
@@ -598,22 +584,6 @@ export default {
   'course_set.manage.unlock_success_hint': '解除同步成功！',
 
   'course_set.manage.unlock_failure_hint': '解除同步失败：',
-
-  'course_set.manage.activity_link_hint':`<p class="title">任务环节</p>在设计学习任务时，您可以按照课时去设置预习、学习、练习、作业、课外这几个环节，每个环节都可以通过各种教学手段来实现。`,
-
-  'course_set.manage.upgrade_hint':`<p class="title">功能升级</p>课程管理功能现已全新升级。`,
-
-  'course_set.manage.all_tutorial':`<div class="btn-content"><p><a class='btn btn-success js-reset-intro %introBtnClassName%'>查看引导</a></p><a class='btn btn-info'>完整教程</a><div>`,
-
-  'course_set.manage.hint':`<p class="title">多个教学计划</p>恭喜你创建了多个教学计划！左侧的功能菜单会有所简化，只会显示课程公共的相关设置。`,
-
-  'course_set.manage.upgrade_step1_hint':`<p class="title">计划任务</p>教学内容的编辑、管理请点击左侧“计划任务”的菜单项进入。`,
-
-  'course_set.manage.upgrade_step2_hint':`<p class="title">营销设置</p>在“营销设置”中您可以通过设置决定课程如何销售、如何加入、如何学习。`,
-
-  'course_set.manage.upgrade_step3_hint':`<p class="title">添加任务</p>您可以在这里选择各种不同的教学手段，然后上传文件/设置内容/设置学习完成条件。`,
-
-  'course_set.manage.upgrade_step5_hint':`<p class="title">任务环节</p>在设计学习任务时，您可以按照课时去设置预习、学习、练习、作业、课外这几个环节，每个环节都可以通过各种教学手段来实现。`,
 
   'course.manage.title_required_error_hint': '请输入教学.计划课程标题',
 
@@ -885,7 +855,7 @@ export default {
 
   'share.qr_code_load_hint': '正在加载二维码...',
 
-  'share.wechat_share_usage_hint':`打开微信，点击底部的“发现”，<br>使用 “扫一扫” 即可将网页分享到我的朋友圈。`,
+  'share.wechat_share_usage_hint':`打开微信，点击底部的“发现”，使用 “扫一扫” 即可将网页分享到我的朋友圈。`,
 
   'task.plugin_question_post_success_hint': '提问成功',
 
@@ -1155,8 +1125,6 @@ export default {
 
   'validate_old.positive_currency.message': '请输入大于等于0的有效价格，最多两位小数，整数位不超过8位！',
 
-  'validate_old.required.message': '请输入{{display}}',
-
   'validate_old.valid_email_input.message': '%display%的格式不正确',
 
   'validate_old.valid_url_input.message': '%display%的格式不正确',
@@ -1275,7 +1243,7 @@ export default {
 
   'cashier.confirm.pick_again': '重选支付方式',
 
-  'cashier.confirm.desc': '请在新开页面中完成订单支付。<br>如在支付过程中遇到问题，请联系网站客服解决。<br>',
+  'cashier.confirm.desc': '请在新开页面中完成订单支付。如在支付过程中遇到问题，请联系网站客服解决。',
 
   'oauth.send.validate_message': '发送验证',
 

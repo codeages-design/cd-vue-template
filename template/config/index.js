@@ -30,7 +30,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://try6.edusoho.cn',
+        target: 'http://t5.edusoho.cn',
         changeOrigin: true
       }
     },

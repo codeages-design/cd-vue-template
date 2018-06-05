@@ -16,7 +16,7 @@ export default {
         {
           label: '账号',
           prop: 'username',
-          type: 'text',
+          type: 'input',
           placeholder: '邮箱/手机/用户名',
         },
         {
