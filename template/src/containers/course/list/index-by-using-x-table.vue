@@ -1,5 +1,5 @@
 <template>
-  <x-table ref="table" class="courses-table" v-bind="{ 'list': { data: courseData, paging }, columns, config }" @changePage="currentChange">
+  <cd-table ref="table" class="courses-table" v-bind="{ 'list': { data: courseData, paging }, columns, config }" @changePage="currentChange">
     <!-- <el-table-column :width="180" v-if="isExpand"></el-table-column> -->
     <template slot="scope">
       <el-table-column label="操作" width="120">
@@ -8,7 +8,7 @@
         </template>
       </el-table-column>
     </template>
-  </x-table>
+  </cd-table>
 </template>
 
 <script>

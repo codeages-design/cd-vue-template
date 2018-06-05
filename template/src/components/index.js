@@ -5,8 +5,8 @@ import tableList from './table/index';
 import form from './form/index';
 import pagination from './pagination/index';
 
-Vue.component('x-panel', panel);
-Vue.component('x-modal', modal);
-Vue.component('x-table', tableList);
-Vue.component('x-pagination', pagination);
-Vue.component('x-form', form);
+Vue.component('cd-panel', panel);
+Vue.component('cd-modal', modal);
+Vue.component('cd-table', tableList);
+Vue.component('cd-pagination', pagination);
+Vue.component('cd-form', form);

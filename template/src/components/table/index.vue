@@ -1,5 +1,5 @@
 <template>
-  <div class="x-table" v-loading="isLoading" v-if="list">
+  <div class="cd-table" v-loading="isLoading" v-if="list">
     <el-table ref="table" :data="list.data" @sort-change="sortsChange" @expand-change='expandChange' :stripe="tableConfig.stripe" :default-sort="tableConfig['default-sort']" :cell-class-name="tableConfig['cell-class-name']" :show-header="tableConfig['show-header']" :highlight-current-row="tableConfig['highlight-current-row']">
       <el-table-column
         v-for="(column,index) in columns"
@@ -17,12 +17,12 @@
 			<slot name="expand"></slot>
 		</el-table>
 
-    <x-pagination
+    <cd-pagination
       :total="list.paging.total"
 			:limit="list.paging.limit"
 			:offset="list.paging.offset"
 			@current-change="changePage">
-    </x-pagination>
+    </cd-pagination>
   </div>
 </template>
 

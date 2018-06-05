@@ -1,9 +1,9 @@
 <template>
   <div class="login-form">
     <div class="login-form__title">登录</div>
-    <x-form :model="loginForm" label-position="top" ref="form" :formItem="formItem" :buttons="buttons">
+    <cd-form :model="loginForm" label-position="top" ref="form" :formItem="formItem" :buttons="buttons">
       <span style="font-size: 12px" slot="el-form-item">请使用try6.edusoho.cn上的账号登录</span>
-    </x-form>
+    </cd-form>
   </div>
 </template>
 

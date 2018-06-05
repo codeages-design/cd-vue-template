@@ -40,14 +40,14 @@
         </cd-panel>
       </el-col>
     </el-row>
-    <x-modal size="md" ref="modal-md">
+    <cd-modal size="md" ref="modal-md">
       <h3 slot="header">模态框1</h3>
       <div slot="body" class="cvp-text-center">模态框body</div>
       <div slot="footer" class="cvp-text-right">
         模态框footer
       </div>
-    </x-modal>
-    <x-modal size="sm" position="center" ref="modal-lg">
+    </cd-modal>
+    <cd-modal size="sm" position="center" ref="modal-lg">
       <h3 slot="header">模态框2</h3>
       <div slot="body" class="cvp-text-center">
         <el-button type="primary" @click="message">提示消息示例</el-button>
@@ -55,7 +55,7 @@
       <div slot="footer" class="cvp-text-right">
         模态框footer
       </div>
-    </x-modal>
+    </cd-modal>
   </div>
 </template>
 
