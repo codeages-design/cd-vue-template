@@ -17,24 +17,35 @@ class GPie extends BaseG2 {
         dimension: this.key1,
         as: 'percent'
       });
+    console.log({
+      type: 'percent',
+      field: this.key2,
+      dimension: this.key1,
+      as: 'percent'
+    });
     this.chart.source(dv, this.config.scaleConfig || {});
     this.dv = dv;
   }
 
-  settooltip() {
-    this.chart.tooltip({
+  setTooltip() {
+    const tooltipConfig = Object.assign({
       showTitle: false, // 不展示标题
       itemTpl: '<li data-index={index}><span style="color:{color}">{name}: </span>{value}</li>'
-    });
+    }, this.config.tooltipConfig);
+    this.chart.tooltip();
+  }
+
+  setCoord() {
+    const coordConfig = Object.assign({
+      radius: 0.9
+    }, this.config.coordConfig)
+    this.chart.coord('theta', coordConfig);
   }
 
   setLegend() {
     const config = this.config;
-    const position = (config.legendConfig && config.legendConfig.position) || 'right';
+    const position = (config.legendConfig && config.legendConfig.position) || 'bottom';
 
-    this.chart.coord('theta', {
-      radius: 0.9
-    });
     this.chart.legend({
       position,
       useHtml: true,
@@ -59,7 +70,13 @@ class GPie extends BaseG2 {
   setPosition() {
     this.chart.intervalStack()
       .position('percent')
-      .color(this.key1, [ '#67b7dc', '#84b761', '#fdd400', '#cc4748', '#cd82ad', '#2f4074', '#448e4d', '#b7b83f', '#b9783f' ]);
+      .color(this.key1)
+      .label(`percent`, {
+        formatter: (val, item) => {
+          console.log(arguments);
+          return item.point[this.key1] + ': ' + val;
+        }
+      });
   }
 }
 

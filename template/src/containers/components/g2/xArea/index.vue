@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     areaConfig: function() {
-      return Object.assign(this.config, areaConfig);
+      return Object.assign({}, areaConfig, this.config);
     }
   }
 }

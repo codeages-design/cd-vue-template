@@ -22,5 +22,8 @@ module.exports = {
       "message": "Author"
     }
   },
-  "skipInterpolation": "src/**/*.vue",
+  "skipInterpolation": [
+    "src/**/*.vue",
+    "doc/*"
+  ],
 }

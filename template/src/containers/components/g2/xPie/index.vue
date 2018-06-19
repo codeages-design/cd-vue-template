@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     pieConfig : function() {
-      return Object.assign({}, this.config, pieConfig);
+      return Object.assign({}, pieConfig, this.config);
     }
   },
   data() {

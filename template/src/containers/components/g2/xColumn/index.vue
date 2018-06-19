@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     columnConfig: function() {
-      return Object.assign({}, this.config, columnConfig);
+      return Object.assign({}, columnConfig, this.config);
     }
   }
 }

@@ -29,6 +29,12 @@
             :height="400"
             :data="payOrderData">
           </x-pie-chart>
+          <pie-chart
+            :height="400"
+            :data="payOrderData"
+            :config="pieConfig"
+            :key="flag">
+          </pie-chart>
         </cd-panel>
       </el-col>
       <el-col :span="14">
@@ -42,12 +48,14 @@
     </el-row>
     <cd-modal size="md" ref="modal-md">
       <h3 slot="header">模态框1</h3>
-      <div slot="body" class="cvp-text-center">模态框body</div>
+      <div slot="body" class="cvp-text-center">
+        <pre style="text-align: left;">{{ JSON.stringify(payOrderData, null, 2) }}</pre>
+      </div>
       <div slot="footer" class="cvp-text-right">
         模态框footer
       </div>
     </cd-modal>
-    <cd-modal size="sm" position="center" ref="modal-lg">
+    <cd-modal size="sm" ref="modal-lg">
       <h3 slot="header">模态框2</h3>
       <div slot="body" class="cvp-text-center">
         <el-button type="primary" @click="message">提示消息示例</el-button>
@@ -62,6 +70,7 @@
 <script>
 import G2 from 'g2';
 import createG2 from '@/containers/components/g2';
+import pieChart from '@/containers/components/g2/xPie/index.vue';
 
 import { mapState, mapActions, mapGetters } from 'vuex';
 // 处理
@@ -105,21 +114,27 @@ const XPieChart = createG2((chart, data) => {
       percent = (percent * 100).toFixed(2) + '%';
       return name + ' ' + percent;
     });
-  console.log(111, data);
   chart.render();
 });
 
 export default {
   components: {
     XLineChart,
-    XPieChart
+    XPieChart,
+    pieChart
   },
   data() {
     return {
+      flag: false,
+      pieConfig: {
+        padding: [0, '20%', '20%', '20%'],
+        legendConfig: {
+          position: 'bottom' // 一定要和padding配合使用 
+        },
+      }
     }
   },
   created() {
-    this.fetchData();
   },
   computed: {
     ...mapState({
@@ -153,6 +168,7 @@ export default {
       });
       this.getPayOrderStatistic().then((res) => {
         console.log('getPayOrderStatistic', res);
+        this.flag = !this.flag;
       });
     },
     alertClose(e) {

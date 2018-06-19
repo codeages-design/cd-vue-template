@@ -6,17 +6,17 @@ class GLine extends BaseG2 {
     super(chart, data, config);
   }
 
-  setPositioin() {
+  setPosition() {
     if(this.yVal) {
       this.chart.line().position(`${this.key1}*${this.yVal}`).color(this.yKey);
       this.chart.point().position(`${this.key1}*${this.yVal}`).color(this.yKey).size(4).shape('circle').style({
-        stroke: '#fff',
+        stroke: '#000',
         lineWidth: 1
       });
     } else {
       this.chart.line().position(`${this.key1}*${this.key2}`);
       this.chart.point().position(`${this.key1}*${this.key2}`).size(4).style({
-        stroke: '#fff',
+        stroke: '#000',
         lineWidth: 1
       });
     }

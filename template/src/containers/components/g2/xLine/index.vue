@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     lineConfig : function() {
-      return Object.assign({}, this.config, lineConfig);
+      return Object.assign({}, lineConfig, this.config);
     }
   },
   data() {

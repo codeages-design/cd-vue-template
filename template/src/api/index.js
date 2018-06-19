@@ -1,15 +1,24 @@
 import axios from 'axios';
 import { parseUrl, addPrefix } from './utils';
-// import jsonRpc from './jsonrpc/index';
 
 // API配置
 import config from '@/api/config';
 
 // 模拟数据
-// import '@/api/mock';
+import '@/api/mock';
 
 // 拦截器
-import '@/api/interceptors';
+import interceptorsList from '@/api/interceptors';
+
+const restAxios = axios.create();
+
+Object.keys(interceptorsList).map((key) => {
+  const list = interceptorsList[key];
+  list.map((item) => {
+    console.log(item, key, 'restAxios');
+    restAxios.interceptors[key].use(item.success, item.error);
+  });
+});
 
 const Api = {};
 
@@ -20,13 +29,11 @@ const axiosApi = () => {
       url = options && options.query ? parseUrl(url, options.query) : url;
       url = addPrefix(url);
 
-      return axios(Object.assign({}, item, options, { url }));
+      return restAxios(Object.assign({}, item, options, { url }));
     }
   });
 };
 
 axiosApi();
-
-// Api.jsonrpc = jsonRpc;
 
 export default Api;

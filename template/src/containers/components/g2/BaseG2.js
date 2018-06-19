@@ -5,7 +5,6 @@ export default class BaseG2 {
     this.chart = chart;
     this.data = data;
     this.config = config;
-    // 
     this.key1 = '';
     this.key2 = '';
     this.number = 0;  // 为了区分多条和单条折线图
@@ -28,11 +27,15 @@ export default class BaseG2 {
   init() {
     this.setSource();
     this.setScale();
+    this.setLegend();
     this.setAxis();
     this.setTooltip();
     this.setEvents();
-    if(this.setPositioin && typeof this.setPositioin === 'function') {
-      this.setPositioin();
+    if (this.setCoord && typeof this.setCoord === 'function') {
+      this.setCoord();
+    }
+    if (this.setPosition && typeof this.setPosition === 'function') {
+      this.setPosition();
     }
     this.done();
   }
@@ -120,7 +123,6 @@ export default class BaseG2 {
   setEvents() {
     // 注册事件
     if(this.config['event']) {
-      console.log('event注册');
       for(const name in this.config['event']) {
         this.chart.on(name, this.config['event'][name])
       }

@@ -1,7 +1,7 @@
 <template>
   <transition name="modal" v-if="show">
     <div class="modal-mask">
-      <div :class="`modal-wrapper-${position}`" @click.self="maskClose">
+      <div :class="`modal-wrapper modal-wrapper-${position}`" @click.self="maskClose">
         <div class="modal-dialog" :class="modalSize">
           <div class="modal-header">
             <slot name="close">
@@ -94,9 +94,14 @@ export default {
     transition: opacity .3s ease;
   }
 
+  .modal-wrapper {
+    overflow: auto;
+  }
+
   .modal-wrapper-center {
     display: table-cell;
     vertical-align: middle;
+    max-height: 100%;
   }
 
   .modal-wrapper-top {
@@ -107,7 +112,7 @@ export default {
     bottom: 0;
     right: 0;
     margin: auto;
-    padding-top: 30px;
+    padding: 30px 0;
   }
 
   .modal-dialog {

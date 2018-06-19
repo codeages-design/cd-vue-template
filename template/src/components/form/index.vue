@@ -15,7 +15,7 @@
       </slot>
       <el-form-item class="buttons" :label-width="labelWidth" v-if="buttons && buttons.length ">
         <el-button v-for="(button,index) in buttons" :key="index" :type="button.type" :loading="button.loading" :disabled="button.disabled ? button.disabled : false" :class="button.class" @click="handleButton(button.method)">
-          {{ button.text }}
+          {{button.text}}
         </el-button>
       </el-form-item>
       <slot name="el-form-item-buttons-after">
