@@ -115,8 +115,8 @@ export default class BaseG2 {
    * https://antv.alipay.com/zh-cn/g2/3.x/api/chart.html#_tooltip
   */
   setTooltip() {
-    if(this.tooltipConfig) {
-      this.chart.tooltip(this.tooltipConfig || {});
+    if (this.config.tooltipConfig) {
+      this.chart.tooltip(this.config.tooltipConfig || {});
     }
   }
 
