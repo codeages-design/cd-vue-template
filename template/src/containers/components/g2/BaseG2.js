@@ -105,7 +105,7 @@ export default class BaseG2 {
     const legendConfig = this.config.legendConfig;
     if(legendConfig) {
       for(const filed in legendConfig) {
-        this.chart.legend(field, legendConfig[filed] || {});
+        this.chart.legend(filed, legendConfig[filed] || {});
       }
     }
   }
